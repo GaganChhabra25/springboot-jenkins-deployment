@@ -1,0 +1,26 @@
+1. Deploy application on Tomcat
+=================================
+- We need to extend the class SpringBootServletInitializer to support WAR file deployment
+-
+      <packaging>war</packaging>
+      <build>
+          <finalName>Test</finalName>
+      </build>
+
+- Startup file :
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <start-class>com.gagan.test.TestApplication</start-class>
+    </properties>
+
+- Exclude internal tomcat :
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-tomcat</artifactId>
+                <scope>provided</scope>
+            </dependency>
+
+URL : http://localhost:8080/Test/hello
